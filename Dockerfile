@@ -9,7 +9,7 @@ USER root
 RUN apt-get update -y
 
 
-# Install commonly used
+# Install commonly used package
 RUN apt-get install -y sudo unzip wget net-tools vim.tiny ca-certificates 
 
 # Install sshd
