@@ -1,0 +1,1 @@
+docker run -p 8080:8080 -v /vagrant/container-share:/vagrant --name nodejs hieisky/ubuntu-base

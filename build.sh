@@ -1,0 +1,1 @@
+docker build -t hieisky/ubuntu-base .
