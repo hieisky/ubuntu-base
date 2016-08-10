@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.4
+FROM ubuntu:14.04.2
 
 # Ubuntu 14.04.2 Docker Base with SSH login
 MAINTAINER Hisiky Ma <hieiskyapp@gmail.com>
@@ -10,7 +10,7 @@ RUN apt-get update -y
 
 
 # Install commonly used package
-RUN apt-get install -y sudo unzip wget net-tools vim.tiny ca-certificates 
+RUN apt-get install -y sudo unzip wget net-tools vim.tiny ca-certificates
 
 # Install sshd
 RUN apt-get install -y openssh-server; apt-get clean
@@ -26,6 +26,12 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 
 
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# apt-get update & upgrade
+RUN apt-get update -y
+
+# Install commonly used package
+RUN apt-get install -y git git-core
 
 # Expose ports
 EXPOSE 22
