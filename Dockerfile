@@ -13,7 +13,7 @@ RUN apt-get update -y
 RUN apt-get install -y sudo unzip wget net-tools vim.tiny ca-certificates
 
 # Install sshd
-RUN apt-get install -y openssh-server; apt-get clean
+RUN apt-get install -y openssh-server; 
 RUN mkdir /var/run/sshd 
 RUN echo 'root:admin' | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
@@ -32,6 +32,9 @@ RUN apt-get update -y
 
 # Install commonly used package
 RUN apt-get install -y git git-core
+
+RUN apt-get clean
+RUN apt-get autoremove -y
 
 # Expose ports
 EXPOSE 22
