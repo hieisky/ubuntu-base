@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.2
+FROM ubuntu:14.04.4
 
 # Ubuntu 14.04.2 Docker Base with SSH login
 MAINTAINER Hisiky Ma <hieiskyapp@gmail.com>
