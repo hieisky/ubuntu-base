@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.2
+FROM ubuntu:14.04.4
 
 # Ubuntu 14.04.2 Docker Base with SSH login
 MAINTAINER Hisiky Ma <hieiskyapp@gmail.com>
@@ -27,16 +27,12 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# apt-get update & upgrade
-RUN apt-get update -y
 
-# Install commonly used package
-RUN apt-get install -y git git-core
-
+# Clean up the
 RUN apt-get clean
 RUN apt-get autoremove -y
 
 # Expose ports
 EXPOSE 22
 
-CMD ["/usr/sbin/sshd", "-D"]
+CMD ["bash"]
