@@ -1,0 +1,1 @@
+docker exec -d ubuntu_base /usr/sbin/sshd -d

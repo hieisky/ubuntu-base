@@ -1,0 +1,1 @@
+docker run -d -t --name ubuntu_base -p 4567:22 -v /vagrant/container-share:/vagrant hieisky/ubuntu-base
