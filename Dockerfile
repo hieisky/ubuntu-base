@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 # Ubuntu 14.04.2 Docker Base with SSH login
-MAINTAINER Hisiky Ma <hieiskyapp@gmail.com>
+MAINTAINER Hisiky <hieiskyapp@gmail.com>
 
 USER root
 
