@@ -10,7 +10,7 @@ RUN apt-get update -y
 
 
 # Install commonly used package
-RUN apt-get install -y sudo unzip wget net-tools vim.tiny ca-certificates
+RUN apt-get install -y sudo unzip wget net-tools vim.tiny ca-certificates curl
 
 # Install python 3.9
 RUN apt install software-properties-common
