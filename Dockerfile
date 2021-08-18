@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-# Ubuntu 14.04.2 Docker Base with SSH login
+# Ubuntu 20.04 Docker Base with SSH login
 MAINTAINER Hisiky <hieiskyapp@gmail.com>
 
 USER root
@@ -10,7 +10,10 @@ RUN apt-get update -y
 
 
 # Install commonly used package
-RUN apt-get install -y sudo unzip wget net-tools vim.tiny ca-certificates curl nano
+RUN apt-get install -y sudo unzip wget net-tools ca-certificates curl nano
+
+# Install git package
+RUN apt-get install -y git git-core
 
 # Install python 3.9
 RUN apt install software-properties-common
