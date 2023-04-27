@@ -1,5 +1,5 @@
 # ubuntu-base
-Dockerfile to build a ubuntu:14.04.4 baseimage.
+Dockerfile to build a ubuntu:23.04 baseimage.
 
 The images contains a few package:
 - git 
