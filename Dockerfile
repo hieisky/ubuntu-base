@@ -1,46 +1,24 @@
-FROM ubuntu:20.04
-
-# Ubuntu 20.04 Docker Base with SSH login
-MAINTAINER Hisiky <hieiskyapp@gmail.com>
-
+FROM ubuntu:latest
 USER root
 
-# apt-get update & upgrade
-RUN apt-get update -y
-
-
 # Install commonly used package
-RUN apt-get install -y sudo unzip wget net-tools ca-certificates curl nano
+RUN apt-get update && \
+    apt-get install -y \
+    git \
+    openssh-client \
+    curl \
+    nano \
+    python3.9 \
+    python3-pip
 
-# Install git package
-RUN apt-get install -y git git-core
+# Install .NET 7 SDK
+RUN curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin -c 7.0 --install-dir /opt/dotnet
 
-# Install python 3.9
-RUN apt install software-properties-common
-RUN add-apt-repository ppa:deadsnakes/ppa
-RUN apt install python3.9
+# Create a directory to mount the SSH keys
+RUN mkdir /root/.ssh
 
-# Install sshd
-RUN apt-get install -y openssh-server; 
-RUN mkdir /var/run/sshd 
-RUN echo 'root:admin' | chpasswd
-RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+# Set the proper permissions for the .ssh directory
+RUN chmod 700 /root/.ssh
 
-# SSH login fix. Otherwise user is kicked off after login
-RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
-
-ENV NOTVISIBLE "in users profile"
-RUN echo "export VISIBLE=now" >> /etc/profile
-
-
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-
-# Clean up the
-RUN apt-get clean
-RUN apt-get autoremove -y
-
-# Expose ports
-EXPOSE 22
-
-CMD ["bash"]
+# Run a command to keep the container running
+CMD ["sleep", "infinity"]
