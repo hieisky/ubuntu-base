@@ -5,6 +5,6 @@ The images contains a few package:
 - git 
 - openssh-client 
 - curl 
-- nano 
-- python3.9 
-- dotnet 7.0
+- python3 
+- libicu-dev
+- dotnet 7 & NuGet
